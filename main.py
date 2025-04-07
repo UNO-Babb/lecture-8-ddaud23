@@ -1,25 +1,23 @@
 def main():
-  pitching = open("MLB_Pitching.csv", 'r')
-  team_data = []
-
-  #get the import info out of pitching and store into team_data
-
-  pitching.close()
-
-  hitting = open("MLB_Hitting.csv", 'r')
-
-  #process all the data in hitting and add to the correct portion of the team_data
-
-  hitting.close()
+  myFile = open("MLB_Pitching.csv", 'r')
+  
 
 
-  outFile = open("mlb_output.csv", 'w')
+  for line in myFile:
+    info = line.split(",")
+    name = info[0]
+    runs_allowed = info[3]
+    wins = info[4]
+    losses = info[5]
+    era = info[7]
 
-  #process each line of the team_data and save to the output file.
-  output = ""
-  outFile.write(output)
 
-  outFile.close()
 
+    team_data = [name, runs_allowed, wins, losses, era]
+    print(team_data)
+
+  myFile.close()
+
+ 
 if __name__ == '__main__':
   main()
